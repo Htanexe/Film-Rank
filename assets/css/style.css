@@ -1,0 +1,305 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body {
+  background-color: rgb(3, 25, 44);
+}
+header {
+  background-color: rgb(2, 19, 36);
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 15vh;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+}
+header h3 {
+  font-size: 50px;
+  margin-left: 0px;
+}
+#logo {
+  display: flex;
+  flex-direction: row;
+}
+.logo {
+  width: 2rem;
+}
+.sidepanel {
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #021324;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10rem;
+}
+.sidepanel h3,
+.sidepanel div {
+  color: white;
+  padding: 8px 8px 8px 32px;
+}
+.summary {
+  cursor: pointer;  
+}
+.summary:hover {
+  color: #ffffff;
+}
+.summary:active {
+  background-color: #010b15;
+}
+a {
+  text-decoration: none;
+  color: #5f7862;
+}
+#app-vote a:not(.closebtn) {
+  padding: 8px 8px 8px 32px;
+  font-size: 15px;
+
+  display: block;
+  transition: 0.3s;
+}
+#accueil {
+  display: flex;
+  margin-top: 15rem;
+  color: white;
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  text-align: center;
+  margin-inline: 5rem;
+  background-color: #021324;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#movie {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: fit-content;
+  flex-grow: 3;
+  margin: 2em;
+  margin-top: 10rem;
+  cursor: grab;
+  user-select: none;
+}
+
+div.card-movie {
+  display: flex;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgb(38, 38, 38);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+div.card-movie section {
+  display: flex;
+  position: absolute;
+  padding: 1rem;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.781);
+  backdrop-filter: blur(3px);
+  width: 14rem;
+  height: 21rem;
+  z-index: 1;
+  transition: 0.3s;
+  opacity: 0;
+}
+div.card-movie section.show {
+  opacity: 100;
+}
+
+#text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 14rem;
+  color: white;
+  transform: translateY(+30px);
+  transition: 1s;
+}
+#text.show {
+  transform: translateY(0px);
+}
+
+
+.text-top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.card-movie img {
+  width: 14rem;
+}
+.text-top h4 {
+  font-weight: 900;
+  font-size: 2.2vh;
+  margin-bottom: 0;
+  width:fit-content;
+}
+
+/* L'index */
+.text-top p {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  padding: 1rem 1.4rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+p.date {
+  font-size: 2vh;
+}
+p {
+  margin-bottom: 0;
+}
+/* la description */
+p.desc {
+  display: flex;
+  font-size: 1.9vh;
+  overflow: scroll;
+  text-align: justify;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4em;
+}
+.saveVote {
+  display: none;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  border: 1px solid white;
+  background-color: #021324;
+  color: white;
+  font-variant-caps: all-small-caps;
+  transition: 0.3s;
+}
+.saveVote:hover {
+  transform: translateY(-30px);
+  background-color: #031c34;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transform: translateY(-3px);
+}
+.saveVote:focus {
+  background-color: #010d19;
+  transform: translateY(0px);
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+footer p {
+  width: 15em;
+  justify-content: center;
+}
+
+/* Ordinateur et tablette */
+@media only screen and (min-width: 769px) {
+  main {
+    margin-left: 13.9rem;
+
+  }
+  #logo {
+    display: flex;
+    margin-left: 2rem;
+    gap: 1rem;
+  }
+  .sidenav {
+    height: 85vh;
+    width: 220px;
+    margin-top: 105px;
+    position: fixed;
+    background-color: rgb(2, 19, 36);
+    overflow-x: hidden;
+  }
+  .sidenav div {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+
+  .summary:hover {
+    color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    cursor: pointer;
+  }
+  .sidepanel,
+  .openbtn {
+    display: none;
+  }
+}
+
+/* Pour téléphone */
+@media only screen and (max-width: 769px) {
+  .summary{
+    font-size: 2rem;
+  }
+  header h3 {
+    font-size: 2rem;
+  }
+  #logo {
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .openbtn {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: rgb(2, 19, 36);
+    font-size: 2em;
+  }
+  .sidenav {
+    display: none;
+  }
+  main {
+    margin-left: 0%;
+  }
+  .text-top h4 {
+    font-size: 1.5rem;
+  }
+  p.desc {
+    font-size: 1rem;
+  }
+  p.date {
+    font-size: 1rem;
+  }
+}
